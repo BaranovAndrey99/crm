@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>СОИСКАТЕЛИ</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <a href="/">НА ГЛАВНУЮ</a>
+    <hr>
+        <p>УПРАВЛЕНИЕ СОИСКАТЕЛЯМИ</p>
+    <hr>
+    <hr>
+        <p>Вывести список всех соискателей: </p>
+        <form action="?listseeker" method="post" modelAttribute="listseekerform">
+            <input type="submit" value="Список сотрудников">
+            <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+        </form>
+        {{#listnoresult}}
+            {{listnoresult}}
+        {{/listnoresult}}
+        {{#listresult}}
+            <p>
+                {{id}}
+                {{surname}}
+                {{firstname}}
+                {{fathername}}
+                {{mail}}
+            </p>
+        {{/listresult}}
+    <hr>
+        <p>Создать соискателя(в перспективе форма приходит с другого сервера): </p>
+        <form action="?addseeker" method="post" modelAttribute="addseekerform">
+            <input type="text" name="surname"     placeholder="Фамилия"><br>
+            <input type="text" name="firstname"   placeholder="Имя"><br>
+            <input type="text" name="fathername"  placeholder="Отчество"><br>
+            <input type="text" name="age"         placeholder="Возраст"><br>
+            <input type="text" name="country"     placeholder="Страна"><br>
+            <input type="text" name="city"        placeholder="Город"><br>
+            <input type="text" name="seekerphone"       placeholder="Номер телефона"><br>
+            <input type="text" name="mail"        placeholder="Почта"><br>
+            <input type="submit" value="Отправить">
+            <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+        </form>
+        {{#adderror}}
+            {{adderror}}
+        {{/adderror}}
+    <hr>
+        <p>Найти соискателя: </p>
+        <form action="?searchseeker" method="post" modelAttribute="searchseekerform">
+            <input type="text" name="surname"     placeholder="Фамилия"><br>
+            <input type="text" name="firstname"   placeholder="Имя"><br>
+            <input type="text" name="fathername"  placeholder="Отчество"><br>
+            <input type="submit" value="Найти соискателя">
+            <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+        </form>
+
+        {{#searchnoresult}}
+            {{searchnoresult}}
+        {{/searchnoresult}}
+        {{#searchresult}}
+            <p>
+                {{id}}
+                {{surname}}
+                {{firstname}}
+                {{fathername}}
+                {{mail}}
+            </p>
+        {{/searchresult}}
+    <hr>
+        <p>Удалить соискателя: </p>
+        <form action="?deleteseeker" method="post" modelAttribute="deleteseekerform">
+            <input type="text" name="id" placeholder="Идентификатор соискателя"><br>
+            <input type="submit" value="Удалить">
+            <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+        </form>
+        {{#deleteerror}}
+            {{deleteerror}}
+        {{/deleteerror}}
+    <hr>
+        <p>Назначить собеседование: </p>
+        <form action="?setinterview" method="post" modelAttribute="setinterviewform">
+            <input type="text" name="id" placeholder="Идентификатор соискателя"><br>
+            <input type="submit" value="Назначить">
+            <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+        </form>
+    <hr>
+</div>
+</body>
+</html>

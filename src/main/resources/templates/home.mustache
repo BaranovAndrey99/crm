@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Домашняя страница</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <div>
+            <form action="/logout" method="post">
+                <input type="submit" value="Выход"/>
+                <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+            </form>
+            <hr>
+                <ul>
+                    <li><p><a href="/employee">УПРАВЛЕНИЕ СОТРУДНИКАМИ</a></p></li>
+                    <li><p><a href="/seeker">УПРАВЛЕНИЕ СОИСКАТЕЛЯМИ</a></p></li>
+                    <li><p><a href="/interview">УПРАВЛЕНИЕ СОБЕСЕДОВАНИЯМИ</a></p></li>
+                </ul>
+            <hr>
+        </div>
+    </body>
+</html>

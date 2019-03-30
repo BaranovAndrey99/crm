@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>СОТРУДНИКИ</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <a href="/">НА ГЛАВНУЮ</a>
+    <hr>
+        <p>УПРАВЛЕНИЕ СОТРУДНИКАМИ</p>
+    <hr>
+    <hr>
+        <p>Вывести список всех сотрудников: </p>
+        <form action="?listemployee" method="post" modelAttribute="listemployeeform">
+            <input type="submit" value="Список сотрудников">
+            <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+        </form>
+        {{#listnoresult}}
+            {{listnoresult}}
+        {{/listnoresult}}
+        {{#listresult}}
+            <p>
+                {{id}}
+                {{surname}}
+                {{firstname}}
+                {{fathername}}
+                {{mail}}
+            </p>
+        {{/listresult}}
+    <hr>
+        <p>Добавить сотрудника: </p>
+        <form action="?addemployee" method="post" modelAttribute="addemployeeform">
+            <input type="text" name="surname"       placeholder="Фамилия"><br>
+            <input type="text" name="firstname"     placeholder="Имя"><br>
+            <input type="text" name="fathername"    placeholder="Отчество"><br>
+            <input type="text" name="employeenickname"      placeholder="Никнейм"><br>
+            <input type="text" name="age"           placeholder="Возраст"><br>
+            <input type="text" name="country"       placeholder="Страна"><br>
+            <input type="text" name="city"          placeholder="Город"><br>
+            <input type="text" name="employeeposition"      placeholder="Должность"><br>
+            <input type="text" name="mail"          placeholder="Почта"><br>
+            <input type="submit" value="Создать">
+            <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+        </form>
+        {{#adderror}}
+            {{adderror}}
+        {{/adderror}}
+    <hr>
+        <p>Найти сотрудника: </p>
+        <form action="?search" method="post" modelAttribute="searchemployeeform">
+            <input type="text" name="surname"     placeholder="Фамилия"><br>
+            <input type="text" name="firstname"   placeholder="Имя"><br>
+            <input type="text" name="fathername"  placeholder="Отчество"><br>
+            <input type="submit" value="Найти сотрудника">
+            <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+        </form>
+
+        {{#searchnoresult}}
+            {{searchnoresult}}
+        {{/searchnoresult}}
+        {{#searchresult}}
+            <p>
+            {{id}}
+            {{surname}}
+            {{firstname}}
+            {{fathername}}
+            {{mail}}
+            </p>
+        {{/searchresult}}
+    <hr>
+        <p>Удалить сотрудника: </p>
+        <form action="?deleteemployee" method="post" modelAttribute="deleteemployeeform">
+            <input type="text" name="id" placeholder="Идентификатор сотрудника"><br>
+            <input type="submit" value="Удалить">
+            <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+        </form>
+        {{#deleteerror}}
+            {{deleteerror}}
+        {{/deleteerror}}
+    <hr>
+</div>
+</body>
+</html>

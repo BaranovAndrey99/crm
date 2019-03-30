@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Регистрация</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <div>
+            <p>Регистрация</p>
+
+            {{#message}}
+                {{message}}
+            {{/message}}
+
+            <form action="/registration" method="post">
+                <input type="text"      name="surname"      placeholder="Фамилия"><br>
+                <input type="text"      name="firstname"    placeholder="Имя"><br>
+                <input type="text"      name="fathername"   placeholder="Отчество"><br>
+                <input type="text"      name="usernickname"         placeholder="Никнейм"><br>
+                <input type="text"      name="country"      placeholder="Страна"><br>
+                <input type="text"      name="city"         placeholder="Город"><br>
+                <input type="text"      name="age"         placeholder="Возраст"><br>
+                <input type="text"      name="mail"             placeholder="Почта"><br>
+                <input type="password"  name="userpassword"         placeholder="Пароль"><br>
+                <input type="submit"    value="Сохранить">
+                <input type="hidden"    name="_csrf"            value="{{_csrf.token}}">
+            </form>
+            <a href="/login">Авторизация</a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>СОИСКАТЕЛИ</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <a href="/">НА ГЛАВНУЮ</a>
+    <hr>
+        <p>УПРАВЛЕНИЕ СОБЕСЕДОВАНИЯМИ</p>
+    <hr>
+        <p>Вывести список назначенных собеседований: </p>
+        <form action="?listinterview" method="post" modelAttribute="listinterviewform">
+            <input type="submit" value="Показать"><br>
+            <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+        </form>
+        {{#listnoresult}}
+            {{listnoresult}}
+        {{/listnoresult}}
+        {{#listresult}}
+            <p>
+                {{id}}
+                {{interviewdate}}
+                {{interviewseekerid}}
+            </p>
+        {{/listresult}}
+    <hr>
+</div>
+</body>
+</html>

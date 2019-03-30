@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Авторизация</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <div>
+            <p>Авторизация</p>
+            <form action="/login" method="post">
+                <input type="text"      name="username" placeholder="Логин"><br>
+                <input type="password"  name="password" placeholder="Пароль"><br>
+                <input type="submit"    value="Войти">
+                <input type="hidden"    name="_csrf"    value="{{_csrf.token}}">
+            </form>
+            <a href="/registration">Регистрация</a>
+        </div>
+    </body>
+</html>

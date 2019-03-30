@@ -1,3 +1,4 @@
+# crm
 В проекте используется СУБД PostgreSQL;
     Логин: postgres
     Пароль: psgpwd
